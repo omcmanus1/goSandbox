@@ -6,11 +6,7 @@ import (
 	"github.com/omcmanus1/goSandbox/internal/random"
 )
 
-func printMain() {
-	fmt.Println("Hi from main")
-}
-
 func main() {
-	printMain()
-	random.Random()
+	fmt.Println(random.Sqrt(111556))
+	fmt.Println(random.SquarerRoot(111556))
 }
