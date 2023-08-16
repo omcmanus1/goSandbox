@@ -6,6 +6,8 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	"github.com/kr/pretty"
 )
 
 type Item struct {
@@ -39,6 +41,6 @@ func ParseJSON(data []byte) string {
 	if err := json.Unmarshal([]byte(data), &message); err != nil {
 		fmt.Println("Can not unmarshal JSON")
 	}
-	fmt.Printf("%+v\n", message[0])
-	return message[0].Title
+	fmt.Printf("%# v \n", pretty.Formatter(message[4]))
+	return message[5].Title
 }
