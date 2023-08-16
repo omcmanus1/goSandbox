@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println(random.Sqrt(111556))
-	fmt.Println(random.SquarerRoot(111556))
+	// fmt.Println(random.ApiRequest())
+	fmt.Println(random.ParseJSON(random.ApiRequest()))
 }
