@@ -10,16 +10,6 @@ import (
 	"github.com/kr/pretty"
 )
 
-type Item struct {
-	ID          int                `json:"id"`
-	Title       string             `json:"title"`
-	Price       float32            `json:"price"`
-	Category    string             `json:"category"`
-	Description string             `json:"description"`
-	Image       string             `json:"image"`
-	Rating      map[string]float64 `json:"rating"`
-}
-
 func ApiRequest() []byte {
 	res, err := http.Get("https://fakestoreapi.com/products")
 	if err != nil {

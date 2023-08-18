@@ -7,17 +7,7 @@ import (
 	"github.com/go-resty/resty/v2"
 )
 
-type RestyItem struct {
-	ID          int                `json:"id"`
-	Title       string             `json:"title"`
-	Price       float32            `json:"price"`
-	Category    string             `json:"category"`
-	Description string             `json:"description"`
-	Image       string             `json:"image"`
-	Rating      map[string]float64 `json:"rating"`
-}
-
-func Resty() RestyItem {
+func Resty() Item {
 	client := resty.New()
 	resp, err := client.
 		R().
@@ -29,7 +19,7 @@ func Resty() RestyItem {
 	} else {
 		fmt.Println("Response JSON:")
 	}
-	var results []RestyItem
+	var results []Item
 	if err := json.Unmarshal(resp.Body(), &results); err != nil {
 		fmt.Println("Error:", err)
 	}
