@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	// fmt.Println(random.ApiRequest())
-	fmt.Println(random.ParseJSON(random.ApiRequest()))
+	fmt.Println(random.Request())
+	// fmt.Println(random.ParseJSON(random.ApiRequest()))
 }
