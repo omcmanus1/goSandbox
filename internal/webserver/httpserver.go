@@ -3,21 +3,15 @@ package webserver
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/omcmanus1/goSandbox/internal/types"
 )
 
 func CreateServer(port string) error {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Welcome to the server")
-	})
-	http.HandleFunc("/categories", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "This is the categories page")
-	})
-	http.HandleFunc("/secrets", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Super secret passwords here. Don't look.")
-	})
-	http.HandleFunc("/blah", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Blahblahblahblah")
-	})
+	http.Handle("/", &types.CustomHandler{Message: "Welcome to the server"})
+	http.Handle("/categories", &types.CustomHandler{Message: "This is the categories page"})
+	http.Handle("/secrets", &types.CustomHandler{Message: "Super secret passwords here. Don't look."})
+	http.Handle("/blah", &types.CustomHandler{Message: "Blahblahblahblah"})
 
 	fmt.Println("Listening on port ", port)
 	return http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
