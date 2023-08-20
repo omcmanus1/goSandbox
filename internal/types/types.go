@@ -1,4 +1,4 @@
-package random
+package types
 
 type Item struct {
 		ID          int                `json:"id"`

@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"log"
 
-	"github.com/omcmanus1/goSandbox/internal/random"
+	"github.com/omcmanus1/goSandbox/internal/webserver"
 )
 
 func main() {
-	fmt.Println(random.Resty())
-	// fmt.Println(random.ParseJSON(random.ApiRequest()))
+	log.Fatal(webserver.CreateServer("3000"))
 }

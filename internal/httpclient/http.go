@@ -1,4 +1,4 @@
-package random
+package httpclient
 
 import (
 	"encoding/json"
@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/omcmanus1/goSandbox/internal/types"
 	"github.com/kr/pretty"
 )
 
@@ -27,7 +28,7 @@ func ApiRequest() []byte {
 }
 
 func ParseJSON(data []byte) string {
-	var message []Item
+	var message []types.Item
 	if err := json.Unmarshal([]byte(data), &message); err != nil {
 		fmt.Println("Can not unmarshal JSON")
 	}

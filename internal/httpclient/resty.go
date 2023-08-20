@@ -1,4 +1,4 @@
-package random
+package httpclient
 
 import (
 	// "encoding/json"
@@ -6,11 +6,12 @@ import (
 	"fmt"
 
 	"github.com/go-resty/resty/v2"
+	"github.com/omcmanus1/goSandbox/internal/types"
 )
 
-func Resty() Item {
+func Resty() types.Item {
 	client := resty.New()
-	var results []Item
+	var results []types.Item
 	resp, err := client.
 		R().
 		// SetResult(results).

@@ -1,14 +1,15 @@
-package random
+package httpclient
 
 import (
 	"log"
 
 	"github.com/monaco-io/request"
+	"github.com/omcmanus1/goSandbox/internal/types"
 )
 
 func Request() string {
 
-	var result []Item
+	var result []types.Item
 
 	client := request.Client{
 		URL:    "https://fakestoreapi.com/products",
