@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
-	"github.com/omcmanus1/goSandbox/internal/webserver"
+	"github.com/omcmanus1/goSandbox/internal/httpclient"
 )
 
 func main() {
-	log.Fatal(webserver.CreateServer("3000"))
+	fmt.Println(httpclient.ParsedRequest())
 }

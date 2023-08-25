@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/omcmanus1/goSandbox/internal/types"
 	"github.com/kr/pretty"
+	"github.com/omcmanus1/goSandbox/internal/types"
 )
 
 func ApiRequest() []byte {
@@ -34,4 +34,23 @@ func ParseJSON(data []byte) string {
 	}
 	fmt.Printf("%# v \n", pretty.Formatter(message[4]))
 	return message[5].Title
+}
+
+func ParsedRequest() interface{} {
+	var data []types.Item
+
+	resp, err := http.Get("https://fakestoreapi.com/products")
+	if err != nil {
+		fmt.Println("Error fetching products: ", err)
+		return pretty.Formatter(data)
+	}
+
+	defer resp.Body.Close()
+
+	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
+		fmt.Println("Error decoding product data: ", err)
+		return pretty.Formatter(data)
+	}
+
+	return fmt.Sprintf("%# v \n", pretty.Formatter(data))
 }
