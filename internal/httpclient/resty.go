@@ -5,11 +5,10 @@ import (
 	"fmt"
 
 	"github.com/go-resty/resty/v2"
-	"github.com/kr/pretty"
 	"github.com/omcmanus1/goSandbox/internal/types"
 )
 
-func Resty() string {
+func Resty() []types.Item {
 	client := resty.New()
 	var results []types.Item
 	resp, err := client.
@@ -23,5 +22,5 @@ func Resty() string {
 	if err := json.Unmarshal(resp.Body(), &results); err != nil {
 		fmt.Println("Error:", err)
 	}
-	return fmt.Sprintf("%# v \n", pretty.Formatter(results))
+	return results
 }
