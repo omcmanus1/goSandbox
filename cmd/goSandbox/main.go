@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println(httpclient.ParsedRequest())
+	fmt.Println(httpclient.Resty())
 }
